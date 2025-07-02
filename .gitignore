@@ -1,0 +1,12 @@
+.idea/
+.vscode/
+
+.env
+env/
+build/
+dist/
+
+__pycache__/
+local_settings.py
+*.log
+db.sqlite3
