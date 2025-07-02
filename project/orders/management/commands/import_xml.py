@@ -65,3 +65,8 @@ class Command(BaseCommand):
         self.stdout.write(
             self.style.SUCCESS(f"{created_orders_count} orders imported successfully.")
         )
+        self.stdout.write(
+            self.style.SUCCESS(
+                "Run the server and view them at http://127.0.0.1:8000/api/order/"
+            )
+        )
