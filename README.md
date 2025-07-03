@@ -8,7 +8,9 @@ Django app importing XML file data to be displayed through endpoints.
 
 - `cd xml-into-rest`
 
-- `python -m venv env` - Setup environment
+- `python3 -m venv env` - Setup environment
+
+  ( or `python -m venv env` )
 
 - `source env/bin/activate` - Start environment
 
@@ -44,7 +46,12 @@ From `project` folder root :
 
 ## Admin
 
-To view and edit data, access admin at `http://127.0.0.1:8000/admin/`
+To view and edit data :
 
-- User : `admin-bh`
-- Password : `password-bh`
+- Access admin at `http://127.0.0.1:8000/admin/`
+
+- Create admin (email can be left blank)
+
+  `python manage.py createsuperuser`
+
+- Log into django admin with your credentials
