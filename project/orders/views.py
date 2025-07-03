@@ -5,6 +5,12 @@ from orders.serializers import OrderSerializer
 
 
 class OrderViewset(ReadOnlyModelViewSet):
+    """
+    ReadOnly viewset of Order Model.
+        order/
+        order/:id/
+    """
+
     serializer_class = OrderSerializer
 
     def get_queryset(self):

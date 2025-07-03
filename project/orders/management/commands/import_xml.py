@@ -1,12 +1,20 @@
 from django.core.management.base import BaseCommand
 import xml.etree.ElementTree as ET
 
-from orders.utils import Format, format_xml_data
+from orders.utils import FormatType, format_xml_data
 from orders.models import Order
 
 
 class Command(BaseCommand):
-    help = "Import xml file"
+    """
+    Import xml file located at 'file_path' into orders model.
+
+    Options
+    -------
+    file_path : str
+    """
+
+    help = "Import xml file located at 'file_path' into orders model."
 
     def add_arguments(self, parser):
         parser.add_argument("file_path", type=str)
@@ -21,19 +29,19 @@ class Command(BaseCommand):
 
         # Retrieve data from XML in an array
         try:
-            for order in root.iter("order"):
+            for order in root.find("orders"):
                 order_dict = {
                     "order_id": format_xml_data(order.find("order_id")),
                     "marketplace": format_xml_data(order.find("marketplace")),
                     "order_status": format_xml_data(order.find("order_status/lengow")),
                     "order_purchase_date": format_xml_data(
-                        order.find("order_purchase_date"), Format.DATE
+                        order.find("order_purchase_date"), FormatType.DATE
                     ),
                     "order_amount": format_xml_data(
-                        order.find("order_amount"), Format.FLOAT
+                        order.find("order_amount"), FormatType.FLOAT
                     ),
                     "order_shipping": format_xml_data(
-                        order.find("order_shipping"), Format.FLOAT
+                        order.find("order_shipping"), FormatType.FLOAT
                     ),
                 }
                 orders_data.append(order_dict)
