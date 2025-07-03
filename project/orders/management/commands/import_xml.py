@@ -30,6 +30,7 @@ class Command(BaseCommand):
         # Retrieve data from XML in an array
         try:
             for order in root.find("orders"):
+                # order_status comes from "lengow" sub element
                 order_dict = {
                     "order_id": format_xml_data(order.find("order_id")),
                     "marketplace": format_xml_data(order.find("marketplace")),
