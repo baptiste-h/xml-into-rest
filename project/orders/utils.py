@@ -27,7 +27,7 @@ def format_xml_data(element: Element | None, format_type=FormatType.STR):
     if not isinstance(format_type, FormatType):
         raise TypeError("format_type must be an instance of Format Enum")
 
-    if element == None or element.text == None:
+    if element is None or element.text is None:
         return None
 
     # Remove trailing spaces
