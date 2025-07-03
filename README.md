@@ -34,6 +34,14 @@ From `project` folder root :
 
 - View specific order at `http://127.0.0.1:8000/api/order/<id>/`
 
+- Run tests
+
+  `python manage.py test orders.tests`
+
+- Run ruff
+
+  `ruff check`
+
 ## Admin
 
 To view and edit data, access admin at `http://127.0.0.1:8000/admin/`
